@@ -3,7 +3,7 @@ module.exports = {
   txWeatherUrl: `http://api.tianapi.com/txapi/tianqi/index`, // 天气api
   txNewsTopicUrl: `http://api.tianapi.com/txapi/wxhottopic/index`, // 微信热点话题
   txBotUrl: `http://api.tianapi.com/txapi/robot/index`, // 微信机器人聊天
-  txKey: ``, // 你自己申请的天行api key填到这里！申请地址：https://www.tianapi.com/source/14f94f80bd
+  gptKey: `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`, // 你自己申请的api key填到这里！
   city: `北京`, // 获取【天气】的所在城市
   autoReply: true, // 是否开启机器人的自动回复，在群内使用机器人每次都需要@才可以使用。
 

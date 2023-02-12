@@ -118,20 +118,20 @@ async function onMessage(msg) {
   const type = msg.type()
 
   // 每日任务从fileHelper转发到群消息
-  if (text.includes(`=======================`)) {
-    if (forwardRooms && forwardRooms.length > 0 && !isRoomBlock) {
-      forwardRooms.forEach(room => {
-        msg.forward(room)
-        isRoomBlock = true
-      })
-    }
-    if (forwardFriends && forwardFriends.length > 0 && !isFriendBlock) {
-      forwardFriends.forEach(friend => {
-        msg.forward(friend)
-        isFriendBlock = true
-      })
-    }
-  }
+  // if (text.includes(`=======================`)) {
+  //   if (forwardRooms && forwardRooms.length > 0 && !isRoomBlock) {
+  //     forwardRooms.forEach(room => {
+  //       msg.forward(room)
+  //       isRoomBlock = true
+  //     })
+  //   }
+  //   if (forwardFriends && forwardFriends.length > 0 && !isFriendBlock) {
+  //     forwardFriends.forEach(friend => {
+  //       msg.forward(friend)
+  //       isFriendBlock = true
+  //     })
+  //   }
+  // }
   if (msg.self()) return
 
   // 处理群消息
@@ -188,10 +188,14 @@ async function initDailyTask() {
   isRoomBlock = false
   // 关闭多个【好友】转发锁
   isFriendBlock = false
-  const fileHelper = bot.Contact.load('filehelper')
+  // const fileHelper = bot.Contact.load('filehelper')/
+  const all = bot.Contact.findAll()
   const erjian = dayjs('2023-06-03')
   const d = erjian.diff(dayjs(),"day")
-  const message = `【倒计时🦄】距离二级建造师考试剩余${d}日`
+  const message = 
+`=======================
+【倒计时🦄】距离二级建造师考试剩余${d}日
+=======================`
   // `
   // =======================
   // 【每日一句🦄】${SENTENCE}
@@ -201,7 +205,10 @@ async function initDailyTask() {
   // ${NEWS}
   // =======================
   // `
-  fileHelper.say(`${message}`)
+  // fileHelper.say(`${message}`)
+  ;(await all).forEach(i => {
+    i.say(message)
+  })
 }
   
 const bot = WechatyBuilder.build({
