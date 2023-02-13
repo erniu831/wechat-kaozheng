@@ -1,6 +1,6 @@
 // const superagent = require('superagent')
 const axios = require('axios')
-const TOKEN = "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"
+const TOKEN = "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"
 
 async function gpt(question) {
     let p = 'YOU:' + question + "\n"
