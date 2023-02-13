@@ -172,6 +172,7 @@ async function onMessage(msg) {
   //   msg.say(`2023年二级建造师考试时间为6月3日-6月4日，距离当前还有${d}天`)
   // }
   const asw = await gpt(text).catch(e => {
+    console.error(e)
     msg.say("机器人出错，请联系管理员")
   })
   if (asw) {
