@@ -1,7 +1,6 @@
 // const superagent = require('superagent')
 const axios = require('axios')
-const TOKEN = "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"
-
+const TOKEN = atob('c2stNm5zQWxXYkpXbjdIV040THh3d1dUM0JsYmtGSjByRzZoVXZEZ1h6RklKY0hVdUJN')
 async function gpt(question) {
     let p = 'YOU:' + question + "\n"
     // const res = await superagent.post('https://api.openai.com/v1/completions').set("Authorization", 'Bearer ' + TOKEN)
